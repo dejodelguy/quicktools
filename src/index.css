@@ -675,16 +675,23 @@
 
 /* Override centered icon containers inside header */
 .tool-page-header > div:first-child {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  margin-bottom: 0 !important;
+  width: 48px;
+  height: 48px;
+  margin: 0 !important;
+  padding: 0;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: var(--color-accent-soft) !important;
   border-radius: 12px !important;
 }
 
 .tool-page-header > div:first-child svg {
+  width: 24px;
+  height: 24px;
   color: var(--color-accent) !important;
+  margin: 0;
 }
 
 .tool-page-header-icon {
