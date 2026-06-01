@@ -5,7 +5,8 @@ import {
   AlignLeft, CaseSensitive, Hash, Fingerprint, Regex, Link, Clock,
   Ruler, Landmark, Heart, CalendarDays, Receipt, DollarSign,
   Code, Paintbrush, Key, Smile, ShieldCheck, Eraser, Volume2,
-  FileJson, Timer, Scaling as ScalingIcon
+  FileJson, Timer, Scaling as ScalingIcon, Droplets,
+  Scissors, FileMinus, FileOutput, FileStack, RotateCw, Stamp, Maximize2
 } from 'lucide-react'
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
@@ -14,17 +15,29 @@ import SEOHead from '../components/SEOHead'
 
 const tools = [
   // IMAGE TOOLS
-  { title: 'Image Compressor', description: 'Compress PNG, JPG, WebP without losing quality.', path: '/image-compressor', icon: Image, featured: true },
-  { title: 'Image Resizer', description: 'Resize images to exact dimensions. Maintains aspect ratio.', path: '/image-resizer', icon: Scaling, featured: true },
-  { title: 'Image Cropper', description: 'Crop images to your desired area with drag handles.', path: '/image-cropper', icon: Crop },
-  { title: 'Image Converter', description: 'Convert between PNG, JPG, and WebP formats.', path: '/image-converter', icon: RefreshCw },
-  { title: 'Background Remover', description: 'Remove solid-color backgrounds. Download as PNG.', path: '/background-remover', icon: Eraser, featured: true },
+  { title: 'Image Compressor', description: 'Reduce image file size without losing quality.', path: '/image-compressor', icon: Zap, featured: true },
+  { title: 'Image Resizer', description: 'Resize images to any dimension.', path: '/image-resizer', icon: Scaling, featured: true },
+  { title: 'Image Cropper', description: 'Crop images to the perfect size.', path: '/image-cropper', icon: Crop },
+  { title: 'Image Converter', description: 'Convert images between formats (PNG, JPG, WebP).', path: '/image-converter', icon: RefreshCw },
+  { title: 'Background Remover', description: 'Remove backgrounds from images instantly.', path: '/background-remover', icon: Eraser, featured: true },
   { title: 'Image Color Picker', description: 'Pick colors from any image pixel.', path: '/image-color-picker', icon: Pipette },
   { title: 'Meme Generator', description: 'Create custom memes with your own images.', path: '/meme-generator', icon: Smile },
+  { title: 'Image Watermark', description: 'Add text or image watermarks to your photos.', path: '/image-watermark', icon: Droplets },
+  { title: 'Rotate Image', description: 'Rotate and flip images at any angle.', path: '/rotate-image', icon: RotateCw },
+  { title: 'Image Upscaler', description: 'Upscale images 2×, 3×, or 4× with AI.', path: '/image-upscaler', icon: Maximize2 },
 
   // PDF TOOLS
   { title: 'Image to PDF', description: 'Convert images to PDF documents.', path: '/image-to-pdf', icon: FileImage, featured: true },
   { title: 'PDF Merger', description: 'Combine multiple PDF files into one.', path: '/pdf-merger', icon: FilePlus, featured: true },
+  { title: 'PDF to Image', description: 'Convert PDF pages to PNG or JPG images.', path: '/pdf-to-image', icon: Image, featured: true },
+  { title: 'Split PDF', description: 'Split PDF into multiple files by page ranges.', path: '/split-pdf', icon: Scissors },
+  { title: 'PDF Page Remover', description: 'Remove specific pages from a PDF.', path: '/pdf-page-remover', icon: FileMinus },
+  { title: 'PDF Page Extractor', description: 'Extract specific pages into a new PDF.', path: '/pdf-page-extractor', icon: FileOutput },
+  { title: 'PDF Organizer', description: 'Reorder and organize PDF pages.', path: '/pdf-organizer', icon: FileStack },
+  { title: 'Rotate PDF', description: 'Rotate PDF pages 90°, 180°, or 270°.', path: '/rotate-pdf', icon: RotateCw },
+  { title: 'PDF Page Numbers', description: 'Add page numbers to every page in a PDF.', path: '/pdf-page-numbers', icon: Hash },
+  { title: 'PDF Watermark', description: 'Add text watermark to every page in a PDF.', path: '/pdf-watermark', icon: Stamp },
+  { title: 'HTML to PDF', description: 'Convert HTML code to a PDF document.', path: '/html-to-pdf', icon: FileCode },
 
   // TEXT TOOLS
   { title: 'Lorem Ipsum Generator', description: 'Generate placeholder text for designs.', path: '/lorem-ipsum-generator', icon: AlignLeft },
@@ -71,8 +84,8 @@ const tools = [
 ]
 
 const categories = [
-  { id: 'image-tools', name: 'Image Tools', description: 'Compress, resize, crop, and convert images', filter: (t: typeof tools[0]) => ['/image-compressor','/image-resizer','/image-cropper','/image-converter','/background-remover','/image-color-picker','/meme-generator'].includes(t.path) },
-  { id: 'pdf-tools', name: 'PDF Tools', description: 'Convert and merge PDF documents', filter: (t: typeof tools[0]) => ['/image-to-pdf','/pdf-merger'].includes(t.path) },
+  { id: 'image-tools', name: 'Image Tools', description: 'Compress, resize, crop, and convert images', filter: (t: typeof tools[0]) => ['/image-compressor','/image-resizer','/image-cropper','/image-converter','/background-remover','/image-color-picker','/meme-generator','/image-watermark','/rotate-image','/image-upscaler'].includes(t.path) },
+  { id: 'pdf-tools', name: 'PDF Tools', description: 'Convert, merge, split, and edit PDF documents', filter: (t: typeof tools[0]) => ['/image-to-pdf','/pdf-merger','/pdf-to-image','/split-pdf','/pdf-page-remover','/pdf-page-extractor','/pdf-organizer','/rotate-pdf','/pdf-page-numbers','/pdf-watermark','/html-to-pdf'].includes(t.path) },
   { id: 'text-tools', name: 'Text Tools', description: 'Write, convert, and analyze text', filter: (t: typeof tools[0]) => ['/lorem-ipsum-generator','/case-converter','/text-to-speech','/word-counter','/text-diff','/markdown-preview'].includes(t.path) },
   { id: 'developer-tools', name: 'Developer Tools', description: 'JSON, hashing, regex, encoding, and more', filter: (t: typeof tools[0]) => ['/json-formatter','/hash-generator','/uuid-generator','/regex-tester','/url-encoder','/timestamp-converter','/jwt-decoder','/cron-builder','/html-minifier','/css-minifier','/json-to-csv','/password-strength'].includes(t.path) },
   { id: 'converters', name: 'Converters', description: 'Units, currencies, colors, and number bases', filter: (t: typeof tools[0]) => ['/color-converter','/base64-tool','/unit-converter','/currency-converter','/base-converter','/percentage-calculator'].includes(t.path) },

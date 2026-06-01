@@ -19,9 +19,21 @@ import ImageConverter from './pages/ImageConverter'
 import BackgroundRemover from './pages/BackgroundRemover'
 import ImageColorPicker from './pages/ImageColorPicker'
 import MemeGenerator from './pages/MemeGenerator'
+import ImageWatermark from './pages/ImageWatermark'
 // PDF Tools
 import ImageToPdf from './pages/ImageToPdf'
 import PdfMerger from './pages/PdfMerger'
+import PdfPageExtractor from './pages/PdfPageExtractor'
+import PdfOrganizer from './pages/PdfOrganizer'
+import PdfPageNumbers from './pages/PdfPageNumbers'
+import PdfWatermark from './pages/PdfWatermark'
+import PdfToImage from './pages/PdfToImage'
+import SplitPdf from './pages/SplitPdf'
+import PdfPageRemover from './pages/PdfPageRemover'
+import RotatePdf from './pages/RotatePdf'
+import HtmlToPdf from './pages/HtmlToPdf'
+import RotateImage from './pages/RotateImage'
+import ImageUpscaler from './pages/ImageUpscaler'
 // Text Tools
 import LoremIpsumGenerator from './pages/LoremIpsumGenerator'
 import CaseConverter from './pages/CaseConverter'
@@ -76,9 +88,21 @@ export default function App() {
           <Route path="/background-remover" element={<BackgroundRemover />} />
           <Route path="/image-color-picker" element={<ImageColorPicker />} />
           <Route path="/meme-generator" element={<MemeGenerator />} />
+          <Route path="/image-watermark" element={<ImageWatermark />} />
+          <Route path="/rotate-image" element={<RotateImage />} />
+          <Route path="/image-upscaler" element={<ImageUpscaler />} />
           {/* PDF Tools */}
           <Route path="/image-to-pdf" element={<ImageToPdf />} />
           <Route path="/pdf-merger" element={<PdfMerger />} />
+          <Route path="/pdf-page-extractor" element={<PdfPageExtractor />} />
+          <Route path="/pdf-organizer" element={<PdfOrganizer />} />
+          <Route path="/pdf-page-numbers" element={<PdfPageNumbers />} />
+          <Route path="/pdf-watermark" element={<PdfWatermark />} />
+          <Route path="/pdf-to-image" element={<PdfToImage />} />
+          <Route path="/split-pdf" element={<SplitPdf />} />
+          <Route path="/pdf-page-remover" element={<PdfPageRemover />} />
+          <Route path="/rotate-pdf" element={<RotatePdf />} />
+          <Route path="/html-to-pdf" element={<HtmlToPdf />} />
           {/* Text Tools */}
           <Route path="/lorem-ipsum-generator" element={<LoremIpsumGenerator />} />
           <Route path="/case-converter" element={<CaseConverter />} />
