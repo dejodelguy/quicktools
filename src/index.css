@@ -833,7 +833,6 @@
 
 /* Tool page labels */
 .tool-page label {
-  display: block;
   font-size: 0.8125rem;
   font-weight: 600;
   color: var(--color-text);
