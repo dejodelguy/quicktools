@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout'
 import Home from './pages/Home'
 import InvoiceGenerator from './pages/InvoiceGenerator'
@@ -53,7 +53,7 @@ import ScreenRuler from './pages/ScreenRuler'
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
@@ -109,6 +109,6 @@ export default function App() {
           <Route path="/screen-ruler" element={<ScreenRuler />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
