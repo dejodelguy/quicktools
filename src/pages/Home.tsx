@@ -7,6 +7,8 @@ import {
   Code, Paintbrush, Key, Smile, ShieldCheck, Eraser, Volume2,
   FileJson, Timer, Scaling as ScalingIcon
 } from 'lucide-react'
+import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import ToolCard from '../components/ToolCard'
 import SEOHead from '../components/SEOHead'
 
@@ -69,16 +71,31 @@ const tools = [
 ]
 
 const categories = [
-  { name: 'Image Tools', description: 'Compress, resize, crop, and convert images', filter: (t: typeof tools[0]) => ['/image-compressor','/image-resizer','/image-cropper','/image-converter','/background-remover','/image-color-picker','/meme-generator'].includes(t.path) },
-  { name: 'PDF Tools', description: 'Convert and merge PDF documents', filter: (t: typeof tools[0]) => ['/image-to-pdf','/pdf-merger'].includes(t.path) },
-  { name: 'Text Tools', description: 'Write, convert, and analyze text', filter: (t: typeof tools[0]) => ['/lorem-ipsum-generator','/case-converter','/text-to-speech','/word-counter','/text-diff','/markdown-preview'].includes(t.path) },
-  { name: 'Developer Tools', description: 'JSON, hashing, regex, encoding, and more', filter: (t: typeof tools[0]) => ['/json-formatter','/hash-generator','/uuid-generator','/regex-tester','/url-encoder','/timestamp-converter','/jwt-decoder','/cron-builder','/html-minifier','/css-minifier','/json-to-csv','/password-strength'].includes(t.path) },
-  { name: 'Converters', description: 'Units, currencies, colors, and number bases', filter: (t: typeof tools[0]) => ['/color-converter','/base64-tool','/unit-converter','/currency-converter','/base-converter','/percentage-calculator'].includes(t.path) },
-  { name: 'Calculators', description: 'Finance, health, and everyday math', filter: (t: typeof tools[0]) => ['/loan-calculator','/bmi-calculator','/age-calculator','/tip-calculator'].includes(t.path) },
-  { name: 'Generators', description: 'Invoices, passwords, QR codes, and policies', filter: (t: typeof tools[0]) => ['/invoice-generator','/password-generator','/qr-code-generator','/privacy-policy-generator','/screen-ruler'].includes(t.path) },
+  { id: 'image-tools', name: 'Image Tools', description: 'Compress, resize, crop, and convert images', filter: (t: typeof tools[0]) => ['/image-compressor','/image-resizer','/image-cropper','/image-converter','/background-remover','/image-color-picker','/meme-generator'].includes(t.path) },
+  { id: 'pdf-tools', name: 'PDF Tools', description: 'Convert and merge PDF documents', filter: (t: typeof tools[0]) => ['/image-to-pdf','/pdf-merger'].includes(t.path) },
+  { id: 'text-tools', name: 'Text Tools', description: 'Write, convert, and analyze text', filter: (t: typeof tools[0]) => ['/lorem-ipsum-generator','/case-converter','/text-to-speech','/word-counter','/text-diff','/markdown-preview'].includes(t.path) },
+  { id: 'developer-tools', name: 'Developer Tools', description: 'JSON, hashing, regex, encoding, and more', filter: (t: typeof tools[0]) => ['/json-formatter','/hash-generator','/uuid-generator','/regex-tester','/url-encoder','/timestamp-converter','/jwt-decoder','/cron-builder','/html-minifier','/css-minifier','/json-to-csv','/password-strength'].includes(t.path) },
+  { id: 'converters', name: 'Converters', description: 'Units, currencies, colors, and number bases', filter: (t: typeof tools[0]) => ['/color-converter','/base64-tool','/unit-converter','/currency-converter','/base-converter','/percentage-calculator'].includes(t.path) },
+  { id: 'calculators', name: 'Calculators', description: 'Finance, health, and everyday math', filter: (t: typeof tools[0]) => ['/loan-calculator','/bmi-calculator','/age-calculator','/tip-calculator'].includes(t.path) },
+  { id: 'generators', name: 'Generators', description: 'Invoices, passwords, QR codes, and policies', filter: (t: typeof tools[0]) => ['/invoice-generator','/password-generator','/qr-code-generator','/privacy-policy-generator','/screen-ruler'].includes(t.path) },
 ]
 
 export default function Home() {
+  const location = useLocation()
+
+  // Scroll to section if navigated from another page
+  useEffect(() => {
+    const state = location.state as { scrollTo?: string } | null
+    if (state?.scrollTo) {
+      const el = document.getElementById(state.scrollTo)
+      if (el) {
+        setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100)
+      }
+      // Clear state so back/forward doesn't re-scroll
+      window.history.replaceState({}, '')
+    }
+  }, [location.state])
+
   const featuredTools = [
     { icon: Image, label: 'Image' },
     { icon: FileImage, label: 'PDF' },
@@ -137,7 +154,7 @@ export default function Home() {
       {categories.map((cat) => {
         const catTools = tools.filter(cat.filter)
         return (
-          <section key={cat.name} className="section">
+          <section key={cat.name} id={cat.id} className="section">
             <div className="section-header">
               <h2>{cat.name}</h2>
               <p>{cat.description}</p>
