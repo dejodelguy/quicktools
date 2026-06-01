@@ -743,10 +743,85 @@
 
 @media (max-width: 768px) {
   .tool-page {
-    padding: 24px 16px 48px;
+    padding: 20px 12px 40px;
   }
   .tool-page-grid-2 {
     grid-template-columns: 1fr;
+  }
+  .tool-page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .tool-page-header h1 {
+    font-size: 1.25rem;
+  }
+  .tool-page-card {
+    padding: 16px;
+  }
+  /* Collapse all 2-col and 3-col grids inside tool pages */
+  .tool-page .grid-cols-2,
+  .tool-page .grid-cols-3,
+  .tool-page .grid-cols-4 {
+    grid-template-columns: 1fr !important;
+  }
+  /* Wrap flex rows so buttons/controls don't overflow */
+  .tool-page .flex.gap-2,
+  .tool-page .flex.gap-3,
+  .tool-page .flex.gap-4,
+  .tool-page .flex.gap-6 {
+    flex-wrap: wrap;
+  }
+  /* Stack side-by-side textareas (JSON Formatter, Text Diff, etc.) */
+  .tool-page textarea {
+    min-height: 140px;
+  }
+  /* Images shouldn't overflow */
+  .tool-page img {
+    max-width: 100%;
+    height: auto;
+  }
+  /* Buttons full-width on mobile */
+  .tool-page .btn-primary,
+  .tool-page .btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+  /* Tab/toggle groups wrap */
+  .tool-page .flex.gap-2 > button,
+  .tool-page .flex.gap-3 > button {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+  /* Pre/code blocks scroll horizontally instead of overflowing */
+  .tool-page pre,
+  .tool-page code {
+    max-width: 100%;
+    overflow-x: auto;
+    word-break: break-word;
+    white-space: pre-wrap;
+  }
+  /* Fixed-height preview areas shrink */
+  .tool-page .h-80 {
+    height: 200px !important;
+  }
+  .tool-page .h-64 {
+    height: 160px !important;
+  }
+  .tool-page .max-h-80 {
+    max-height: 200px;
+  }
+  .tool-page .min-h-\[400px\] {
+    min-height: 200px !important;
+  }
+  /* Upload areas smaller on mobile */
+  .tool-page label[class*="h-64"] {
+    height: 160px !important;
+  }
+  /* Ad placeholders don't overflow */
+  .tool-page .ad-placeholder {
+    overflow: hidden;
   }
 }
 
