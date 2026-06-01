@@ -11,66 +11,83 @@ import ToolCard from '../components/ToolCard'
 import SEOHead from '../components/SEOHead'
 
 const tools = [
-  // ORIGINAL 10
-  { title: 'Invoice Generator', description: 'Create professional invoices and download as PDF. Perfect for freelancers and small businesses.', path: '/invoice-generator', icon: FileText, featured: true },
-  { title: 'JSON Formatter', description: 'Format, validate, and minify JSON data instantly. With syntax highlighting and tree view.', path: '/json-formatter', icon: Braces, featured: true },
-  { title: 'Word Counter', description: 'Count words, characters, sentences, and paragraphs. Analyze reading time and keyword density.', path: '/word-counter', icon: Type, featured: true },
-  { title: 'Password Generator', description: 'Generate strong, secure passwords with customizable length and character types.', path: '/password-generator', icon: Shield, featured: true },
-  { title: 'QR Code Generator', description: 'Create QR codes for URLs, text, and more. Download as PNG with custom sizes.', path: '/qr-code-generator', icon: QrCode },
-  { title: 'Color Converter', description: 'Convert colors between HEX, RGB, HSL formats. Generate complementary palettes.', path: '/color-converter', icon: Palette },
-  { title: 'Base64 Tool', description: 'Encode and decode Base64 strings. Supports text and file conversion.', path: '/base64-tool', icon: Binary },
-  { title: 'Percentage Calculator', description: 'Calculate percentages, percentage change, and ratios instantly.', path: '/percentage-calculator', icon: Calculator },
-  { title: 'Text Diff', description: 'Compare two texts side by side and highlight the differences line by line.', path: '/text-diff', icon: GitCompare },
-  { title: 'Markdown Preview', description: 'Write and preview Markdown in real time. Export formatted HTML.', path: '/markdown-preview', icon: FileCode },
+  // IMAGE TOOLS
+  { title: 'Image Compressor', description: 'Compress PNG, JPG, WebP without losing quality.', path: '/image-compressor', icon: Image, featured: true },
+  { title: 'Image Resizer', description: 'Resize images to exact dimensions. Maintains aspect ratio.', path: '/image-resizer', icon: Scaling, featured: true },
+  { title: 'Image Cropper', description: 'Crop images to your desired area with drag handles.', path: '/image-cropper', icon: Crop },
+  { title: 'Image Converter', description: 'Convert between PNG, JPG, and WebP formats.', path: '/image-converter', icon: RefreshCw },
+  { title: 'Background Remover', description: 'Remove solid-color backgrounds. Download as PNG.', path: '/background-remover', icon: Eraser, featured: true },
+  { title: 'Image Color Picker', description: 'Pick colors from any image pixel.', path: '/image-color-picker', icon: Pipette },
+  { title: 'Meme Generator', description: 'Create custom memes with your own images.', path: '/meme-generator', icon: Smile },
 
-  // IMAGE TOOLS (high traffic)
-  { title: 'Image Compressor', description: 'Compress PNG, JPG, WebP images without losing quality. Reduce file size instantly.', path: '/image-compressor', icon: Image, featured: true },
-  { title: 'Image Resizer', description: 'Resize images to exact dimensions. Maintains aspect ratio. Download as PNG.', path: '/image-resizer', icon: Scaling, featured: true },
-  { title: 'Image Cropper', description: 'Crop images to your desired area. Drag handles to adjust the selection.', path: '/image-cropper', icon: Crop },
-  { title: 'Image Converter', description: 'Convert images between PNG, JPG, and WebP formats instantly.', path: '/image-converter', icon: RefreshCw },
-  { title: 'Background Remover', description: 'Remove solid-color backgrounds from images. Download as transparent PNG.', path: '/background-remover', icon: Eraser, featured: true },
-  { title: 'Image Color Picker', description: 'Pick colors from any image. Click on pixels to get hex and RGB values.', path: '/image-color-picker', icon: Pipette },
-  { title: 'Meme Generator', description: 'Create custom memes with your own images. Add top and bottom text.', path: '/meme-generator', icon: Smile },
-
-  // PDF TOOLS (massive traffic)
-  { title: 'Image to PDF', description: 'Convert images to PDF. Combine multiple photos into one document.', path: '/image-to-pdf', icon: FileImage, featured: true },
-  { title: 'PDF Merger', description: 'Combine multiple PDF files into one. Reorder pages before merging.', path: '/pdf-merger', icon: FilePlus, featured: true },
+  // PDF TOOLS
+  { title: 'Image to PDF', description: 'Convert images to PDF documents.', path: '/image-to-pdf', icon: FileImage, featured: true },
+  { title: 'PDF Merger', description: 'Combine multiple PDF files into one.', path: '/pdf-merger', icon: FilePlus, featured: true },
 
   // TEXT TOOLS
-  { title: 'Lorem Ipsum Generator', description: 'Generate placeholder text for designs. Choose paragraphs, sentences, or words.', path: '/lorem-ipsum-generator', icon: AlignLeft },
-  { title: 'Case Converter', description: 'Convert text to uppercase, lowercase, title case, camelCase, snake_case and more.', path: '/case-converter', icon: CaseSensitive },
-  { title: 'Text to Speech', description: 'Convert any text to speech. Multiple voices, adjustable speed and pitch.', path: '/text-to-speech', icon: Volume2 },
+  { title: 'Lorem Ipsum Generator', description: 'Generate placeholder text for designs.', path: '/lorem-ipsum-generator', icon: AlignLeft },
+  { title: 'Case Converter', description: 'Convert text to any case format.', path: '/case-converter', icon: CaseSensitive },
+  { title: 'Text to Speech', description: 'Convert text to speech audio.', path: '/text-to-speech', icon: Volume2 },
+  { title: 'Word Counter', description: 'Count words, characters, sentences, paragraphs.', path: '/word-counter', icon: Type, featured: true },
+  { title: 'Text Diff', description: 'Compare two texts side by side.', path: '/text-diff', icon: GitCompare },
+  { title: 'Markdown Preview', description: 'Write and preview Markdown in real time.', path: '/markdown-preview', icon: FileCode },
 
   // DEVELOPER TOOLS
-  { title: 'Hash Generator', description: 'Generate SHA-1, SHA-256, SHA-384, SHA-512 hashes for any text.', path: '/hash-generator', icon: Hash },
-  { title: 'UUID Generator', description: 'Generate unique identifiers (UUID v4). Bulk generate up to 100 at once.', path: '/uuid-generator', icon: Fingerprint },
-  { title: 'Regex Tester', description: 'Test and debug regular expressions with real-time matching and highlights.', path: '/regex-tester', icon: Regex },
-  { title: 'URL Encoder', description: 'Encode or decode URLs and URI components. Supports percent encoding.', path: '/url-encoder', icon: Link },
-  { title: 'Timestamp Converter', description: 'Convert between Unix timestamps and human-readable dates. Live clock.', path: '/timestamp-converter', icon: Clock },
-  { title: 'JWT Decoder', description: 'Decode and inspect JSON Web Tokens. View header, payload, and expiry.', path: '/jwt-decoder', icon: Key },
-  { title: 'Cron Builder', description: 'Build cron expressions visually with presets. Understand any schedule.', path: '/cron-builder', icon: Timer },
-  { title: 'HTML Minifier', description: 'Minify or beautify HTML code. Reduce file size or format for readability.', path: '/html-minifier', icon: Code },
-  { title: 'CSS Minifier', description: 'Minify or beautify CSS stylesheets. Reduce file size instantly.', path: '/css-minifier', icon: Paintbrush },
-  { title: 'JSON to CSV', description: 'Convert JSON arrays to CSV format. Handles nested objects automatically.', path: '/json-to-csv', icon: FileJson },
-  { title: 'Password Strength', description: 'Test how secure your password is. See crack time estimate and tips.', path: '/password-strength', icon: ShieldCheck },
+  { title: 'JSON Formatter', description: 'Format, validate, and minify JSON data.', path: '/json-formatter', icon: Braces, featured: true },
+  { title: 'Hash Generator', description: 'Generate SHA-1, SHA-256, SHA-384, SHA-512 hashes.', path: '/hash-generator', icon: Hash },
+  { title: 'UUID Generator', description: 'Generate unique identifiers. Bulk up to 100.', path: '/uuid-generator', icon: Fingerprint },
+  { title: 'Regex Tester', description: 'Test and debug regular expressions.', path: '/regex-tester', icon: Regex },
+  { title: 'URL Encoder', description: 'Encode or decode URLs and URI components.', path: '/url-encoder', icon: Link },
+  { title: 'Timestamp Converter', description: 'Convert Unix timestamps to readable dates.', path: '/timestamp-converter', icon: Clock },
+  { title: 'JWT Decoder', description: 'Decode and inspect JSON Web Tokens.', path: '/jwt-decoder', icon: Key },
+  { title: 'Cron Builder', description: 'Build cron expressions visually.', path: '/cron-builder', icon: Timer },
+  { title: 'HTML Minifier', description: 'Minify or beautify HTML code.', path: '/html-minifier', icon: Code },
+  { title: 'CSS Minifier', description: 'Minify or beautify CSS stylesheets.', path: '/css-minifier', icon: Paintbrush },
+  { title: 'JSON to CSV', description: 'Convert JSON arrays to CSV format.', path: '/json-to-csv', icon: FileJson },
+  { title: 'Password Strength', description: 'Test how secure your password is.', path: '/password-strength', icon: ShieldCheck },
 
   // CONVERTERS
-  { title: 'Unit Converter', description: 'Convert between length, weight, volume, area, speed, and temperature.', path: '/unit-converter', icon: Ruler },
-  { title: 'Currency Converter', description: 'Convert between 35+ world currencies. Includes African currencies.', path: '/currency-converter', icon: DollarSign },
-  { title: 'Number Base Converter', description: 'Convert numbers between binary, octal, decimal, and hexadecimal.', path: '/base-converter', icon: Binary },
+  { title: 'Color Converter', description: 'Convert between HEX, RGB, HSL formats.', path: '/color-converter', icon: Palette },
+  { title: 'Base64 Tool', description: 'Encode and decode Base64 strings.', path: '/base64-tool', icon: Binary },
+  { title: 'Unit Converter', description: 'Convert length, weight, volume, speed, temperature.', path: '/unit-converter', icon: Ruler },
+  { title: 'Currency Converter', description: 'Convert between 35+ world currencies.', path: '/currency-converter', icon: DollarSign },
+  { title: 'Number Base Converter', description: 'Convert between binary, octal, decimal, hex.', path: '/base-converter', icon: Binary },
+  { title: 'Percentage Calculator', description: 'Calculate percentages and ratios.', path: '/percentage-calculator', icon: Calculator },
 
   // CALCULATORS
-  { title: 'Loan Calculator', description: 'Calculate monthly payments, total interest, and total cost of any loan.', path: '/loan-calculator', icon: Landmark },
-  { title: 'BMI Calculator', description: 'Calculate your Body Mass Index. Supports metric and imperial units.', path: '/bmi-calculator', icon: Heart },
-  { title: 'Age Calculator', description: 'Calculate your exact age in years, months, days from date of birth.', path: '/age-calculator', icon: CalendarDays },
-  { title: 'Tip Calculator', description: 'Calculate tips and split bills between any number of people.', path: '/tip-calculator', icon: Receipt },
+  { title: 'Loan Calculator', description: 'Calculate monthly payments and total interest.', path: '/loan-calculator', icon: Landmark },
+  { title: 'BMI Calculator', description: 'Calculate Body Mass Index.', path: '/bmi-calculator', icon: Heart },
+  { title: 'Age Calculator', description: 'Calculate exact age from date of birth.', path: '/age-calculator', icon: CalendarDays },
+  { title: 'Tip Calculator', description: 'Calculate tips and split bills.', path: '/tip-calculator', icon: Receipt },
 
   // OTHER
-  { title: 'Privacy Policy Generator', description: 'Generate a privacy policy for your website. Customize for your business.', path: '/privacy-policy-generator', icon: FileText },
-  { title: 'Screen Ruler', description: 'Measure pixels, centimeters, and inches on your screen.', path: '/screen-ruler', icon: ScalingIcon },
+  { title: 'Invoice Generator', description: 'Create professional invoices as PDF.', path: '/invoice-generator', icon: FileText, featured: true },
+  { title: 'Password Generator', description: 'Generate strong, secure passwords.', path: '/password-generator', icon: Shield, featured: true },
+  { title: 'QR Code Generator', description: 'Create QR codes for URLs and text.', path: '/qr-code-generator', icon: QrCode },
+  { title: 'Privacy Policy Generator', description: 'Generate privacy policies for your site.', path: '/privacy-policy-generator', icon: FileText },
+  { title: 'Screen Ruler', description: 'Measure pixels, cm, and inches on screen.', path: '/screen-ruler', icon: ScalingIcon },
+]
+
+const categories = [
+  { name: 'Image Tools', description: 'Compress, resize, crop, and convert images', filter: (t: typeof tools[0]) => ['/image-compressor','/image-resizer','/image-cropper','/image-converter','/background-remover','/image-color-picker','/meme-generator'].includes(t.path) },
+  { name: 'PDF Tools', description: 'Convert and merge PDF documents', filter: (t: typeof tools[0]) => ['/image-to-pdf','/pdf-merger'].includes(t.path) },
+  { name: 'Text Tools', description: 'Write, convert, and analyze text', filter: (t: typeof tools[0]) => ['/lorem-ipsum-generator','/case-converter','/text-to-speech','/word-counter','/text-diff','/markdown-preview'].includes(t.path) },
+  { name: 'Developer Tools', description: 'JSON, hashing, regex, encoding, and more', filter: (t: typeof tools[0]) => ['/json-formatter','/hash-generator','/uuid-generator','/regex-tester','/url-encoder','/timestamp-converter','/jwt-decoder','/cron-builder','/html-minifier','/css-minifier','/json-to-csv','/password-strength'].includes(t.path) },
+  { name: 'Converters', description: 'Units, currencies, colors, and number bases', filter: (t: typeof tools[0]) => ['/color-converter','/base64-tool','/unit-converter','/currency-converter','/base-converter','/percentage-calculator'].includes(t.path) },
+  { name: 'Calculators', description: 'Finance, health, and everyday math', filter: (t: typeof tools[0]) => ['/loan-calculator','/bmi-calculator','/age-calculator','/tip-calculator'].includes(t.path) },
+  { name: 'Generators', description: 'Invoices, passwords, QR codes, and policies', filter: (t: typeof tools[0]) => ['/invoice-generator','/password-generator','/qr-code-generator','/privacy-policy-generator','/screen-ruler'].includes(t.path) },
 ]
 
 export default function Home() {
+  const featuredTools = [
+    { icon: Image, label: 'Image' },
+    { icon: FileImage, label: 'PDF' },
+    { icon: Braces, label: 'JSON' },
+    { icon: Shield, label: 'Security' },
+    { icon: DollarSign, label: 'Finance' },
+    { icon: Hash, label: 'Dev' },
+  ]
+
   return (
     <>
       <SEOHead
@@ -79,38 +96,60 @@ export default function Home() {
         keywords="free online tools, image compressor, pdf merger, json formatter, unit converter, password generator, online tools, productivity tools, developer tools"
       />
 
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
-          <div className="text-center max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-1.5 mb-6">
-              <Zap className="w-4 h-4 text-yellow-300" />
-              <span className="text-sm font-medium">40+ Free Tools</span>
+      {/* Hero - asymmetric layout */}
+      <section className="hero">
+        <div className="hero-content">
+          <div className="hero-badge">
+            <Zap size={14} />
+            {tools.length} free tools
+          </div>
+          <h1>Every tool you need, one tab away</h1>
+          <p className="hero-subtitle">
+            Image compressors, PDF tools, converters, calculators, developer utilities. Free, fast, no signup.
+          </p>
+          <div className="hero-stats">
+            <div className="hero-stat">
+              <span className="hero-stat-value">{tools.length}+</span>
+              <span className="hero-stat-label">Tools</span>
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              Every Tool You Need,<br />
-              <span className="text-blue-200">All in One Place</span>
-            </h1>
-            <p className="text-lg sm:text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-              Image compressors, PDF tools, converters, calculators, developer utilities, and more.
-              Free, fast, and no signup required.
-            </p>
+            <div className="hero-stat">
+              <span className="hero-stat-value">7</span>
+              <span className="hero-stat-label">Categories</span>
+            </div>
+            <div className="hero-stat">
+              <span className="hero-stat-value">$0</span>
+              <span className="hero-stat-label">Forever</span>
+            </div>
           </div>
         </div>
-      </section>
 
-      {/* Tools Grid */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="mb-10">
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">All Tools</h2>
-          <p className="text-gray-600">{tools.length} free tools ready to use</p>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-          {tools.map((tool) => (
-            <ToolCard key={tool.path} {...tool} />
+        <div className="hero-visual">
+          {featuredTools.map(({ icon: Icon, label }) => (
+            <div key={label} className="hero-visual-card">
+              <Icon size={22} />
+              <span>{label}</span>
+            </div>
           ))}
         </div>
       </section>
+
+      {/* Category sections */}
+      {categories.map((cat) => {
+        const catTools = tools.filter(cat.filter)
+        return (
+          <section key={cat.name} className="section">
+            <div className="section-header">
+              <h2>{cat.name}</h2>
+              <p>{cat.description}</p>
+            </div>
+            <div className="tool-grid">
+              {catTools.map((tool) => (
+                <ToolCard key={tool.path} {...tool} />
+              ))}
+            </div>
+          </section>
+        )
+      })}
     </>
   )
 }
