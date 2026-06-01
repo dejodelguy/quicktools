@@ -41,12 +41,9 @@ export default function ImageUpscaler() {
   const upscale = useCallback(async () => {
     if (!srcImage) return;
     setProcessing(true);
-
-    // Allow UI to update before heavy work
     await new Promise((r) => setTimeout(r, 50));
 
     try {
-      // Step-by-step upscaling: 2× at a time for better quality
       let current = srcImage;
       let remaining = scale;
 
@@ -96,89 +93,105 @@ export default function ImageUpscaler() {
         description="Upscale images 2×, 3×, or 4× using browser-based canvas rendering. No upload to servers."
         path="/image-upscaler"
       />
-      <div className="max-w-4xl mx-auto px-4 py-10">
-        <div className="flex items-center gap-3 mb-6">
-          <Maximize2 className="w-8 h-8 text-indigo-500" />
-          <h1 className="text-3xl font-bold">Image Upscaler</h1>
-        </div>
-        <p className="text-gray-400 mb-8">
-          Enlarge images up to 4× with high-quality canvas interpolation. Everything runs in your browser.
-        </p>
 
-        {/* Drop zone */}
-        <div
-          onDragOver={(e) => e.preventDefault()}
-          onDrop={handleDrop}
-          onClick={() => fileRef.current?.click()}
-          className="border-2 border-dashed border-gray-600 rounded-xl p-10 text-center cursor-pointer hover:border-indigo-500 transition mb-6"
-        >
-          <Upload className="w-10 h-10 mx-auto text-gray-500 mb-3" />
-          <p className="text-gray-400">Drop an image here or click to browse</p>
-          <input
-            ref={fileRef}
-            type="file"
-            accept="image/*"
-            className="hidden"
-            onChange={(e) => e.target.files?.[0] && handleFile(e.target.files[0])}
-          />
-        </div>
-
-        {srcImage && (
-          <div className="space-y-6">
-            {/* Preview */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="bg-gray-800 rounded-lg p-4">
-                <p className="text-sm text-gray-400 mb-2">Original ({srcDims.w} × {srcDims.h})</p>
-                <img src={srcUrl} alt="Original" className="max-h-60 mx-auto rounded" />
-              </div>
-              {resultUrl && (
-                <div className="bg-gray-800 rounded-lg p-4">
-                  <p className="text-sm text-gray-400 mb-2">Upscaled ({outW} × {outH})</p>
-                  <img src={resultUrl} alt="Upscaled" className="max-h-60 mx-auto rounded" />
-                </div>
-              )}
-            </div>
-
-            {/* Scale selector */}
-            <div className="flex items-center gap-6">
-              <span className="text-sm text-gray-400">Scale:</span>
-              {([2, 3, 4] as Scale[]).map((s) => (
-                <label key={s} className="flex items-center gap-1 cursor-pointer">
-                  <input
-                    type="radio"
-                    name="scale"
-                    checked={scale === s}
-                    onChange={() => { setScale(s); setResultUrl(''); }}
-                    className="accent-indigo-500"
-                  />
-                  <span>{s}× ({srcDims.w * s} × {srcDims.h * s})</span>
-                </label>
-              ))}
-            </div>
-
-            {/* Actions */}
-            <div className="flex gap-3">
-              <button
-                onClick={upscale}
-                disabled={processing}
-                className="flex items-center gap-2 px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 rounded-lg font-medium disabled:opacity-50 transition"
-              >
-                {processing ? <Loader2 className="w-4 h-4 animate-spin" /> : <Maximize2 className="w-4 h-4" />}
-                {processing ? 'Processing…' : 'Upscale'}
-              </button>
-              {resultUrl && (
-                <button
-                  onClick={download}
-                  className="flex items-center gap-2 px-5 py-2.5 bg-green-600 hover:bg-green-700 rounded-lg font-medium transition"
-                >
-                  <Download className="w-4 h-4" /> Download
-                </button>
-              )}
-            </div>
+      <div className="tool-page">
+        <div className="tool-page-header">
+          <div className="tool-page-header-icon">
+            <Maximize2 />
           </div>
-        )}
+          <div>
+            <h1>Image Upscaler</h1>
+            <p>Enlarge images up to 4× with high-quality canvas interpolation. Everything runs in your browser.</p>
+          </div>
+        </div>
 
-        <AdPlaceholder />
+        <AdPlaceholder size="leaderboard" />
+
+        <div className="tool-page-card">
+          {!srcImage ? (
+            <div
+              onDragOver={(e) => e.preventDefault()}
+              onDrop={handleDrop}
+              onClick={() => fileRef.current?.click()}
+              className="flex flex-col items-center justify-center h-64 border-2 border-dashed border-gray-300 rounded-xl cursor-pointer hover:border-blue-400 transition-colors"
+            >
+              <Upload className="w-10 h-10 text-gray-400 mb-3" />
+              <span className="text-gray-600 font-medium">Drop an image here or click to browse</span>
+              <span className="text-sm text-gray-400 mt-1">Supports PNG, JPG, WebP</span>
+              <input
+                ref={fileRef}
+                type="file"
+                accept="image/*"
+                className="hidden"
+                onChange={(e) => e.target.files?.[0] && handleFile(e.target.files[0])}
+              />
+            </div>
+          ) : (
+            <div className="space-y-6">
+              {/* Preview */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="bg-gray-50 rounded-lg p-4 text-center">
+                  <p className="text-sm text-gray-600 mb-2">Original ({srcDims.w} × {srcDims.h})</p>
+                  <img src={srcUrl} alt="Original" className="max-h-60 mx-auto rounded" />
+                </div>
+                {resultUrl && (
+                  <div className="bg-gray-50 rounded-lg p-4 text-center">
+                    <p className="text-sm text-gray-600 mb-2">Upscaled ({outW} × {outH})</p>
+                    <img src={resultUrl} alt="Upscaled" className="max-h-60 mx-auto rounded" />
+                  </div>
+                )}
+              </div>
+
+              {/* Scale selector */}
+              <div>
+                <label className="text-sm font-medium text-gray-700 block mb-2">Scale Factor</label>
+                <div className="flex items-center gap-3">
+                  {([2, 3, 4] as Scale[]).map((s) => (
+                    <button
+                      key={s}
+                      onClick={() => { setScale(s); setResultUrl(''); }}
+                      className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${scale === s ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
+                    >
+                      {s}× ({srcDims.w * s} × {srcDims.h * s})
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Actions */}
+              <div className="flex gap-3">
+                <button
+                  onClick={upscale}
+                  disabled={processing}
+                  className="flex items-center gap-2 px-5 py-2.5 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 disabled:opacity-50 transition-colors"
+                >
+                  {processing ? <Loader2 className="w-4 h-4 animate-spin" /> : <Maximize2 className="w-4 h-4" />}
+                  {processing ? 'Processing…' : 'Upscale'}
+                </button>
+                {resultUrl && (
+                  <button
+                    onClick={download}
+                    className="flex items-center gap-2 px-5 py-2.5 bg-gray-100 text-gray-700 rounded-lg font-medium hover:bg-gray-200 transition-colors"
+                  >
+                    <Download className="w-4 h-4" /> Download
+                  </button>
+                )}
+              </div>
+            </div>
+          )}
+        </div>
+
+        <AdPlaceholder size="leaderboard" />
+
+        <div className="mt-8 bg-white rounded-xl border border-gray-200 p-6">
+          <h2 className="text-xl font-semibold text-gray-900 mb-4">How It Works</h2>
+          <ul className="space-y-2 text-gray-600">
+            <li>Upload any image (PNG, JPG, WebP)</li>
+            <li>Choose your scale factor: 2×, 3×, or 4× enlargement</li>
+            <li>Click <strong>Upscale</strong> — processing happens in your browser</li>
+            <li>Download the upscaled result</li>
+          </ul>
+        </div>
       </div>
     </>
   );

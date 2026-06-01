@@ -1,5 +1,5 @@
 import { useState, useRef, useCallback } from 'react';
-import { Droplets } from 'lucide-react';
+import { Droplets, Upload } from 'lucide-react';
 import SEOHead from '../components/SEOHead';
 import AdPlaceholder from '../components/AdPlaceholder';
 
@@ -162,32 +162,48 @@ export default function ImageWatermark() {
 
   return (
     <>
-      <SEOHead title="Image Watermark" description="Add text or image watermarks to your images online for free." />
-      <div className="max-w-3xl mx-auto py-12 px-4">
-        <div className="flex items-center gap-3 mb-8">
-          <Droplets className="w-8 h-8 text-blue-600" />
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Image Watermark</h1>
+      <SEOHead title="Image Watermark" description="Add text or image watermarks to your images online for free." path="/image-watermark" />
+      <div className="tool-page">
+        <div className="tool-page-header">
+          <div className="tool-page-header-icon">
+            <Droplets />
+          </div>
+          <div>
+            <h1>Image Watermark</h1>
+            <p>Add text or image watermarks to your photos. Free, runs in your browser.</p>
+          </div>
         </div>
 
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow p-6 space-y-6">
+        <AdPlaceholder size="leaderboard" />
+
+        <div className="tool-page-card space-y-6">
           {/* Upload main image */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              Upload Image
+            <label>Upload Image</label>
+            <label className="flex flex-col items-center justify-center h-48 border-2 border-dashed border-gray-300 rounded-xl cursor-pointer hover:border-blue-400 transition-colors">
+              {imageUrl ? (
+                <img src={imageUrl} alt="Preview" className="max-h-44 rounded" />
+              ) : (
+                <>
+                  <Upload className="w-10 h-10 text-gray-400 mb-3" />
+                  <span className="text-gray-600 font-medium">Click or drag image here</span>
+                  <span className="text-sm text-gray-400 mt-1">Supports PNG, JPG, WebP</span>
+                </>
+              )}
+              <input
+                type="file"
+                accept="image/*"
+                className="hidden"
+                onChange={handleImageChange}
+              />
             </label>
-            <input
-              type="file"
-              accept="image/*"
-              onChange={handleImageChange}
-              className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 dark:file:bg-blue-900 dark:file:text-blue-300"
-            />
           </div>
 
           {imageUrl && (
             <>
               {/* Mode toggle */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-gray-700  mb-2">
                   Watermark Type
                 </label>
                 <div className="flex gap-3">
@@ -198,7 +214,7 @@ export default function ImageWatermark() {
                       className={`flex-1 py-2 px-4 rounded-lg text-sm font-medium capitalize transition-colors ${
                         mode === m
                           ? 'bg-blue-600 text-white shadow'
-                          : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
+                          : 'bg-gray-100  text-gray-700  hover:bg-gray-200 '
                       }`}
                     >
                       {m === 'text' ? 'Text Watermark' : 'Image Watermark'}
@@ -211,7 +227,7 @@ export default function ImageWatermark() {
               {mode === 'text' && (
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    <label className="block text-sm font-medium text-gray-700  mb-2">
                       Watermark Text
                     </label>
                     <input
@@ -219,17 +235,17 @@ export default function ImageWatermark() {
                       value={text}
                       onChange={(e) => setText(e.target.value)}
                       placeholder="Enter watermark text"
-                      className="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-3 py-2 text-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none"
+                      className="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white  px-3 py-2 text-sm text-gray-900  focus:ring-2 focus:ring-blue-500 outline-none"
                     />
                   </div>
 
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Font</label>
+                      <label className="block text-sm font-medium text-gray-700  mb-2">Font</label>
                       <select
                         value={font}
                         onChange={(e) => setFont(e.target.value)}
-                        className="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-3 py-2 text-sm text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none"
+                        className="w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white  px-3 py-2 text-sm text-gray-900  focus:ring-2 focus:ring-blue-500 outline-none"
                       >
                         {FONTS.map((f) => (
                           <option key={f} value={f}>{f}</option>
@@ -237,7 +253,7 @@ export default function ImageWatermark() {
                       </select>
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      <label className="block text-sm font-medium text-gray-700  mb-2">
                         Size: {fontSize}px
                       </label>
                       <input
@@ -253,7 +269,7 @@ export default function ImageWatermark() {
 
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Color</label>
+                      <label className="block text-sm font-medium text-gray-700  mb-2">Color</label>
                       <input
                         type="color"
                         value={fontColor}
@@ -262,7 +278,7 @@ export default function ImageWatermark() {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      <label className="block text-sm font-medium text-gray-700  mb-2">
                         Opacity: {Math.round(fontOpacity * 100)}%
                       </label>
                       <input
@@ -282,21 +298,21 @@ export default function ImageWatermark() {
               {mode === 'image' && (
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    <label className="block text-sm font-medium text-gray-700  mb-2">
                       Watermark Image
                     </label>
                     <input
                       type="file"
                       accept="image/*"
                       onChange={handleWmImageChange}
-                      className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 dark:file:bg-blue-900 dark:file:text-blue-300"
+                      className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100  "
                     />
                   </div>
 
                   {wmImageUrl && (
                     <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                        <label className="block text-sm font-medium text-gray-700  mb-2">
                           Scale: {wmScale}%
                         </label>
                         <input
@@ -309,7 +325,7 @@ export default function ImageWatermark() {
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                        <label className="block text-sm font-medium text-gray-700  mb-2">
                           Opacity: {Math.round(wmImageOpacity * 100)}%
                         </label>
                         <input
@@ -328,10 +344,10 @@ export default function ImageWatermark() {
 
               {/* Position grid */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-gray-700  mb-2">
                   Watermark Position
                 </label>
-                <div className="inline-grid grid-cols-3 gap-1 bg-gray-100 dark:bg-gray-700 p-2 rounded-lg">
+                <div className="inline-grid grid-cols-3 gap-1 bg-gray-100  p-2 rounded-lg">
                   {POSITIONS.map((p) => (
                     <button
                       key={p.value}
@@ -339,7 +355,7 @@ export default function ImageWatermark() {
                       className={`w-10 h-10 flex items-center justify-center rounded-lg text-sm font-medium transition-colors ${
                         position === p.value
                           ? 'bg-blue-600 text-white shadow'
-                          : 'bg-white dark:bg-gray-600 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-500'
+                          : 'bg-white dark:bg-gray-600 text-gray-600  hover:bg-gray-200 dark:hover:bg-gray-500'
                       }`}
                       title={p.value}
                     >
@@ -360,7 +376,7 @@ export default function ImageWatermark() {
 
               {/* Preview & download */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Preview</label>
+                <label className="block text-sm font-medium text-gray-700  mb-2">Preview</label>
                 <canvas
                   ref={canvasRef}
                   className="w-full max-h-96 object-contain rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900"
