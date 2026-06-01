@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout'
 import Home from './pages/Home'
 import InvoiceGenerator from './pages/InvoiceGenerator'
@@ -14,7 +14,7 @@ import MarkdownPreview from './pages/MarkdownPreview'
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
@@ -30,6 +30,6 @@ export default function App() {
           <Route path="/markdown-preview" element={<MarkdownPreview />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
