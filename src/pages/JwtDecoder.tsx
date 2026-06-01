@@ -31,8 +31,8 @@ export default function JwtDecoder() {
   return (
     <>
       <SEOHead title="JWT Decoder - Decode JSON Web Tokens Online" description="Decode and inspect JWT tokens online. View header, payload, and signature. Free JWT decoder." path="/jwt-decoder" keywords="jwt decoder, jwt parser, json web token, decode jwt, jwt inspector" />
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-8">
+      <div className="tool-page">
+        <div className="tool-page-header">
           <div className="w-14 h-14 bg-violet-100 rounded-xl flex items-center justify-center mx-auto mb-4"><Key className="w-7 h-7 text-violet-600" /></div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">JWT Decoder</h1>
           <p className="text-gray-600">Decode and inspect JSON Web Tokens.</p>

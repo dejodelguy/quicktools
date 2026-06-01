@@ -56,8 +56,8 @@ export default function ImageCompressor() {
     <>
       <SEOHead title="Image Compressor - Compress PNG, JPG, WebP Online Free" description="Compress images online without losing quality. Reduce file size of PNG, JPG, and WebP images. Free, fast, no signup." path="/image-compressor" keywords="image compressor, compress image, reduce image size, compress png, compress jpg, image optimizer" />
       <canvas ref={canvasRef} className="hidden" />
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-8">
+      <div className="tool-page">
+        <div className="tool-page-header">
           <div className="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-4"><Image className="w-7 h-7 text-green-600" /></div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Image Compressor</h1>
           <p className="text-gray-600">Reduce image file size without losing quality. Supports PNG, JPG, and WebP.</p>

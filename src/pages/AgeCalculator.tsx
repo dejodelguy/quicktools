@@ -27,8 +27,8 @@ export default function AgeCalculator() {
   return (
     <>
       <SEOHead title="Age Calculator - Calculate Your Exact Age" description="Calculate your exact age in years, months, days, weeks, and more. Free online age calculator." path="/age-calculator" keywords="age calculator, how old am i, age from date of birth, birthday calculator" />
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-8">
+      <div className="tool-page">
+        <div className="tool-page-header">
           <div className="w-14 h-14 bg-amber-100 rounded-xl flex items-center justify-center mx-auto mb-4"><CalendarDays className="w-7 h-7 text-amber-600" /></div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Age Calculator</h1>
           <p className="text-gray-600">Calculate your exact age from date of birth.</p>

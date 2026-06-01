@@ -41,8 +41,8 @@ export default function ImageColorPicker() {
     <>
       <SEOHead title="Image Color Picker - Extract Colors from Photos" description="Pick colors from any image. Click on pixels to get hex, RGB values. Free online color picker tool." path="/image-color-picker" keywords="image color picker, color picker from image, extract colors, photo color picker, eyedropper tool" />
       <canvas ref={canvasRef} className="hidden" />
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-8">
+      <div className="tool-page">
+        <div className="tool-page-header">
           <div className="w-14 h-14 bg-indigo-100 rounded-xl flex items-center justify-center mx-auto mb-4"><Pipette className="w-7 h-7 text-indigo-600" /></div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Image Color Picker</h1>
           <p className="text-gray-600">Click anywhere on an image to pick its color.</p>

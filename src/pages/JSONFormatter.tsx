@@ -62,8 +62,8 @@ export default function JSONFormatter() {
     <>
       <SEOHead title="JSON Formatter & Validator" description="Format, validate, and minify JSON data online. Free JSON beautifier with syntax highlighting. Instant, no signup." path="/json-formatter" keywords="json formatter, json validator, json beautifier, json minifier, format json online" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-8">
+      <div className="tool-page">
+        <div className="tool-page-header">
           <div className="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4">
             <Braces className="w-7 h-7 text-blue-600" />
           </div>

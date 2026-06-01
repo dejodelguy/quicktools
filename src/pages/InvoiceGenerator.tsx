@@ -67,8 +67,8 @@ export default function InvoiceGenerator() {
     <>
       <SEOHead title="Free Invoice Generator — Create & Download PDF Invoices" description="Create professional invoices for free. Download as PDF. Perfect for freelancers and small businesses. Multiple color themes." path="/invoice-generator" keywords="invoice generator, free invoice, pdf invoice, invoice maker, online invoice, freelancer invoice" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-8">
+      <div className="tool-page">
+        <div className="tool-page-header">
           <div className="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4"><FileText className="w-7 h-7 text-blue-600" /></div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Invoice Generator</h1>
           <p className="text-gray-600">Create professional invoices and download as PDF</p>

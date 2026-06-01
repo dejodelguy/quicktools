@@ -38,8 +38,8 @@ export default function UnitConverter() {
   return (
     <>
       <SEOHead title="Unit Converter - Convert Units Online Free" description="Convert between units of length, weight, volume, area, speed and temperature. Free online unit converter." path="/unit-converter" keywords="unit converter, measurement converter, length converter, weight converter, convert units online" />
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-8">
+      <div className="tool-page">
+        <div className="tool-page-header">
           <div className="w-14 h-14 bg-orange-100 rounded-xl flex items-center justify-center mx-auto mb-4"><Ruler className="w-7 h-7 text-orange-600" /></div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Unit Converter</h1>
           <p className="text-gray-600">Convert between any units of measurement.</p>

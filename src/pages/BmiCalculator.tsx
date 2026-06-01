@@ -27,8 +27,8 @@ export default function BmiCalculator() {
   return (
     <>
       <SEOHead title="BMI Calculator - Calculate Body Mass Index" description="Calculate your Body Mass Index (BMI) online. Supports metric and imperial units. Free, instant results." path="/bmi-calculator" keywords="bmi calculator, body mass index, bmi chart, weight calculator, health calculator" />
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-8">
+      <div className="tool-page">
+        <div className="tool-page-header">
           <div className="w-14 h-14 bg-pink-100 rounded-xl flex items-center justify-center mx-auto mb-4"><Heart className="w-7 h-7 text-pink-600" /></div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">BMI Calculator</h1>
           <p className="text-gray-600">Calculate your Body Mass Index instantly.</p>

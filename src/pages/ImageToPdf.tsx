@@ -60,8 +60,8 @@ export default function ImageToPdf() {
   return (
     <>
       <SEOHead title="Image to PDF - Convert Photos to PDF Online Free" description="Convert images to PDF online. Combine multiple photos into one PDF file. Free, fast, no signup." path="/image-to-pdf" keywords="image to pdf, photo to pdf, jpg to pdf, png to pdf, convert images to pdf" />
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-8">
+      <div className="tool-page">
+        <div className="tool-page-header">
           <div className="w-14 h-14 bg-red-100 rounded-xl flex items-center justify-center mx-auto mb-4"><FileImage className="w-7 h-7 text-red-600" /></div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Image to PDF</h1>
           <p className="text-gray-600">Convert images to PDF. Combine multiple photos into one document.</p>

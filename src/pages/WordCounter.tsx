@@ -43,8 +43,8 @@ export default function WordCounter() {
     <>
       <SEOHead title="Word Counter — Count Words, Characters & Reading Time" description="Free online word counter. Count words, characters, sentences, paragraphs, and estimate reading time. Analyze keyword density." path="/word-counter" keywords="word counter, character counter, word count, reading time calculator, keyword density" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-8">
+      <div className="tool-page">
+        <div className="tool-page-header">
           <div className="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4">
             <Type className="w-7 h-7 text-blue-600" />
           </div>

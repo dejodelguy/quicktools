@@ -18,8 +18,8 @@ export default function TipCalculator() {
   return (
     <>
       <SEOHead title="Tip Calculator - Calculate Tips and Split Bills" description="Calculate tips and split bills between any number of people. Free online tip calculator." path="/tip-calculator" keywords="tip calculator, gratuity calculator, bill splitter, split the check, restaurant tip" />
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-8">
+      <div className="tool-page">
+        <div className="tool-page-header">
           <div className="w-14 h-14 bg-lime-100 rounded-xl flex items-center justify-center mx-auto mb-4"><Receipt className="w-7 h-7 text-lime-600" /></div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Tip Calculator</h1>
           <p className="text-gray-600">Calculate tips and split bills between people.</p>

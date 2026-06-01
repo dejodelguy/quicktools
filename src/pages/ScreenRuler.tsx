@@ -11,8 +11,8 @@ export default function ScreenRuler() {
   return (
     <>
       <SEOHead title="Screen Ruler - Measure Pixels Online" description="Measure pixels on your screen with this online ruler tool. Supports px, cm, and inches." path="/screen-ruler" keywords="screen ruler, pixel ruler, online ruler, measure pixels, screen measurement tool" />
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-8">
+      <div className="tool-page">
+        <div className="tool-page-header">
           <div className="w-14 h-14 bg-teal-100 rounded-xl flex items-center justify-center mx-auto mb-4"><Ruler className="w-7 h-7 text-teal-600" /></div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Screen Ruler</h1>
           <p className="text-gray-600">Measure pixels, centimeters, and inches on your screen.</p>

@@ -29,8 +29,8 @@ export default function CurrencyConverter() {
   return (
     <>
       <SEOHead title="Currency Converter - Convert Currencies Online" description="Convert between 35+ currencies with live-like rates. Free online currency converter." path="/currency-converter" keywords="currency converter, money converter, exchange rate, forex converter, convert currency" />
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-8">
+      <div className="tool-page">
+        <div className="tool-page-header">
           <div className="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-4"><DollarSign className="w-7 h-7 text-green-600" /></div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Currency Converter</h1>
           <p className="text-gray-600">Convert between 35+ world currencies.</p>

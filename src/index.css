@@ -8,6 +8,36 @@
    ============================================ */
 
 @theme {
+  /* Override Tailwind's blue/gray to match design system */
+  --color-blue-50: rgba(196, 88, 48, 0.05);
+  --color-blue-100: rgba(196, 88, 48, 0.08);
+  --color-blue-200: rgba(196, 88, 48, 0.15);
+  --color-blue-500: #C45830;
+  --color-blue-600: #C45830;
+  --color-blue-700: #A84828;
+  --color-blue-800: #8A3A20;
+
+  --color-gray-50: #F3F0EB;
+  --color-gray-100: #E8E3DD;
+  --color-gray-200: #D4CFC8;
+  --color-gray-300: #D4CFC8;
+  --color-gray-400: #9C9590;
+  --color-gray-500: #9C9590;
+  --color-gray-600: #6B6560;
+  --color-gray-700: #6B6560;
+  --color-gray-800: #3A3530;
+  --color-gray-900: #1A1714;
+
+  --color-red-50: #FDECEA;
+  --color-red-200: #E8B4B0;
+  --color-red-500: #C43A30;
+  --color-red-600: #C43A30;
+  --color-red-700: #A83028;
+
+  --color-green-50: #E8F5E9;
+  --color-green-200: #A5D6A7;
+  --color-green-600: #2D8A4E;
+
   --color-bg: #FAF8F5;
   --color-surface: #FFFFFF;
   --color-surface-alt: #F3F0EB;
@@ -630,23 +660,58 @@
 
 /* --- Tool Page Layout --- */
 .tool-page {
-  max-width: 900px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 40px 24px 64px;
+  padding: 40px 32px 64px;
 }
 
 .tool-page-header {
-  margin-bottom: 32px;
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-align: left;
+}
+
+/* Override centered icon containers inside header */
+.tool-page-header > div:first-child {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  margin-bottom: 0 !important;
+  flex-shrink: 0;
+  background: var(--color-accent-soft) !important;
+  border-radius: 12px !important;
+}
+
+.tool-page-header > div:first-child svg {
+  color: var(--color-accent) !important;
+}
+
+.tool-page-header-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-accent-soft);
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.tool-page-header-icon svg {
+  width: 24px;
+  height: 24px;
 }
 
 .tool-page-header h1 {
-  font-size: 1.75rem;
-  margin-bottom: 8px;
+  font-size: 1.5rem;
+  margin-bottom: 4px;
 }
 
 .tool-page-header p {
   color: var(--color-text-secondary);
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   max-width: 600px;
 }
 
@@ -654,8 +719,140 @@
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  padding: 32px;
+  padding: 28px;
   box-shadow: var(--shadow-md);
+}
+
+.tool-page-card + .tool-page-card {
+  margin-top: 20px;
+}
+
+/* Tool page grid layouts */
+.tool-page-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .tool-page {
+    padding: 24px 16px 48px;
+  }
+  .tool-page-grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Tool page form elements */
+.tool-page textarea,
+.tool-page input[type="text"],
+.tool-page input[type="number"],
+.tool-page input[type="url"],
+.tool-page input[type="email"],
+.tool-page input[type="date"],
+.tool-page select {
+  width: 100%;
+  padding: 10px 14px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--color-text);
+  transition: border-color 0.15s, box-shadow 0.15s;
+  outline: none;
+}
+
+.tool-page textarea:focus,
+.tool-page input:focus,
+.tool-page select:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-soft);
+}
+
+.tool-page textarea {
+  font-family: var(--font-mono);
+  resize: vertical;
+  min-height: 200px;
+}
+
+/* Tool page buttons */
+.tool-page .btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: var(--color-accent);
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+}
+
+.tool-page .btn-primary:hover {
+  background: var(--color-accent-hover);
+}
+
+.tool-page .btn-primary:active {
+  transform: scale(0.98);
+}
+
+.tool-page .btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: var(--color-surface-alt);
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.tool-page .btn-secondary:hover {
+  background: var(--color-border);
+  color: var(--color-text);
+}
+
+/* Tool page labels */
+.tool-page label {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 6px;
+}
+
+/* Tool page error/success messages */
+.tool-page .msg-error {
+  padding: 10px 14px;
+  background: #FDECEA;
+  border: 1px solid #E8B4B0;
+  border-radius: var(--radius);
+  font-size: 0.8125rem;
+  color: var(--color-danger);
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.tool-page .msg-success {
+  padding: 10px 14px;
+  background: #E8F5E9;
+  border: 1px solid #A5D6A7;
+  border-radius: var(--radius);
+  font-size: 0.8125rem;
+  color: var(--color-success);
 }
 
 /* --- Dropdown --- */

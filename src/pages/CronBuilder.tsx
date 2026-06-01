@@ -44,8 +44,8 @@ export default function CronBuilder() {
   return (
     <>
       <SEOHead title="Cron Expression Builder - Generate Cron Schedules" description="Build and understand cron expressions visually. Common presets included. Free online cron builder." path="/cron-builder" keywords="cron builder, cron expression, cron generator, cron schedule, cron syntax" />
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-8">
+      <div className="tool-page">
+        <div className="tool-page-header">
           <div className="w-14 h-14 bg-slate-100 rounded-xl flex items-center justify-center mx-auto mb-4"><Timer className="w-7 h-7 text-slate-600" /></div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Cron Expression Builder</h1>
           <p className="text-gray-600">Build cron expressions visually with presets.</p>

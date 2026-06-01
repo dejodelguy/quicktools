@@ -64,8 +64,8 @@ export default function BackgroundRemover() {
     <>
       <SEOHead title="Background Remover - Remove Image Background Free" description="Remove image backgrounds online for free. Click to select background color and remove it. Download as PNG with transparency." path="/background-remover" keywords="background remover, remove background, transparent background, bg remover, erase background" />
       <canvas ref={canvasRef} className="hidden" />
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-8">
+      <div className="tool-page">
+        <div className="tool-page-header">
           <div className="w-14 h-14 bg-red-100 rounded-xl flex items-center justify-center mx-auto mb-4"><Eraser className="w-7 h-7 text-red-600" /></div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Background Remover</h1>
           <p className="text-gray-600">Remove solid-color backgrounds from images. Click to select the color to remove.</p>

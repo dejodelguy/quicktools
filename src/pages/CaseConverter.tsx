@@ -26,8 +26,8 @@ export default function CaseConverter() {
   return (
     <>
       <SEOHead title="Case Converter - Convert Text Case Online" description="Convert text to uppercase, lowercase, title case, camelCase, snake_case, kebab-case and more. Free online case converter." path="/case-converter" keywords="case converter, uppercase, lowercase, title case, camelcase, snake case, text case converter" />
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-8">
+      <div className="tool-page">
+        <div className="tool-page-header">
           <div className="w-14 h-14 bg-teal-100 rounded-xl flex items-center justify-center mx-auto mb-4"><CaseSensitive className="w-7 h-7 text-teal-600" /></div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Case Converter</h1>
           <p className="text-gray-600">Convert text between different cases instantly.</p>

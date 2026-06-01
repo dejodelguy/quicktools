@@ -46,7 +46,7 @@ export default function PasswordGenerator() {
       <SEOHead title="Password Generator — Strong Secure Passwords" description="Generate strong, secure passwords online. Customizable length, character types, and strength meter. Free, no signup." path="/password-generator" keywords="password generator, random password, strong password, secure password generator" />
 
       <div className="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-8">
+        <div className="tool-page-header">
           <div className="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4"><Shield className="w-7 h-7 text-blue-600" /></div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Password Generator</h1>
           <p className="text-gray-600">Generate strong, secure passwords with one click</p>

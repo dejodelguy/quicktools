@@ -50,8 +50,8 @@ export default function Base64Tool() {
     <>
       <SEOHead title="Base64 Encoder & Decoder" description="Encode and decode Base64 strings online free. Supports text and file conversion with URL-safe option." path="/base64-tool" keywords="base64 encoder, base64 decoder, base64 converter, encode decode base64" />
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-8">
+      <div className="tool-page">
+        <div className="tool-page-header">
           <div className="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4"><Binary className="w-7 h-7 text-blue-600" /></div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Base64 Encoder & Decoder</h1>
           <p className="text-gray-600">Encode and decode Base64 strings instantly</p>

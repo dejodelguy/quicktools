@@ -55,8 +55,8 @@ export default function MemeGenerator() {
     <>
       <SEOHead title="Meme Generator - Create Memes Online Free" description="Create custom memes online. Upload an image, add top and bottom text, download. Free meme maker." path="/meme-generator" keywords="meme generator, meme maker, create meme, meme creator, funny meme generator" />
       <canvas ref={canvasRef} className="hidden" />
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-8">
+      <div className="tool-page">
+        <div className="tool-page-header">
           <div className="w-14 h-14 bg-yellow-100 rounded-xl flex items-center justify-center mx-auto mb-4"><Smile className="w-7 h-7 text-yellow-600" /></div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Meme Generator</h1>
           <p className="text-gray-600">Create custom memes with your own images.</p>

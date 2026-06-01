@@ -48,8 +48,8 @@ export default function JsonToCsv() {
   return (
     <>
       <SEOHead title="JSON to CSV Converter - Convert JSON to CSV Online" description="Convert JSON data to CSV format instantly. Supports nested objects. Free online JSON to CSV converter." path="/json-to-csv" keywords="json to csv, json to csv converter, convert json, json csv, json to spreadsheet" />
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-8">
+      <div className="tool-page">
+        <div className="tool-page-header">
           <div className="w-14 h-14 bg-yellow-100 rounded-xl flex items-center justify-center mx-auto mb-4"><FileJson className="w-7 h-7 text-yellow-600" /></div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">JSON to CSV Converter</h1>
           <p className="text-gray-600">Convert JSON arrays to CSV format. Handles nested objects.</p>

@@ -65,8 +65,8 @@ export default function ImageResizer() {
     <>
       <SEOHead title="Image Resizer - Resize Photos Online Free" description="Resize images online for free. Change dimensions of PNG, JPG, WebP images. Maintain aspect ratio. No signup required." path="/image-resizer" keywords="image resizer, resize photo, resize image online, change image dimensions, image scaler" />
       <canvas ref={canvasRef} className="hidden" />
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-8">
+      <div className="tool-page">
+        <div className="tool-page-header">
           <div className="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-4"><Scaling className="w-7 h-7 text-purple-600" /></div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Image Resizer</h1>
           <p className="text-gray-600">Resize images to exact dimensions. Maintains aspect ratio by default.</p>

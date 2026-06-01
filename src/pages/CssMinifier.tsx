@@ -38,8 +38,8 @@ export default function CssMinifier() {
   return (
     <>
       <SEOHead title="CSS Minifier & Formatter - Minify/Beautify CSS" description="Minify or beautify CSS code online. Reduce stylesheet size or format for readability. Free." path="/css-minifier" keywords="css minifier, css formatter, css beautifier, minify css, compress css" />
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-8">
+      <div className="tool-page">
+        <div className="tool-page-header">
           <div className="w-14 h-14 bg-pink-100 rounded-xl flex items-center justify-center mx-auto mb-4"><Paintbrush className="w-7 h-7 text-pink-600" /></div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">CSS Minifier & Formatter</h1>
           <p className="text-gray-600">Minify or beautify CSS code instantly.</p>

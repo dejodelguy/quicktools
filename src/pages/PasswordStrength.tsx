@@ -30,8 +30,8 @@ export default function PasswordStrength() {
   return (
     <>
       <SEOHead title="Password Strength Checker - Test Your Password Security" description="Check how strong your password is. Get instant feedback on password security and estimated crack time." path="/password-strength" keywords="password strength, password checker, password security, how strong is my password, password tester" />
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-8">
+      <div className="tool-page">
+        <div className="tool-page-header">
           <div className="w-14 h-14 bg-emerald-100 rounded-xl flex items-center justify-center mx-auto mb-4"><ShieldCheck className="w-7 h-7 text-emerald-600" /></div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Password Strength Checker</h1>
           <p className="text-gray-600">Test how secure your password is.</p>

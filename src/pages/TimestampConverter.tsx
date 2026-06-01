@@ -30,8 +30,8 @@ export default function TimestampConverter() {
   return (
     <>
       <SEOHead title="Timestamp Converter - Unix Timestamp to Date Online" description="Convert Unix timestamps to human-readable dates and vice versa. Live current timestamp. Free online converter." path="/timestamp-converter" keywords="timestamp converter, unix timestamp, epoch converter, timestamp to date, date to timestamp" />
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-8">
+      <div className="tool-page">
+        <div className="tool-page-header">
           <div className="w-14 h-14 bg-emerald-100 rounded-xl flex items-center justify-center mx-auto mb-4"><Clock className="w-7 h-7 text-emerald-600" /></div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Timestamp Converter</h1>
           <p className="text-gray-600">Convert between Unix timestamps and human-readable dates.</p>

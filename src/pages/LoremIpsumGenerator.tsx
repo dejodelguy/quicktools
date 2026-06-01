@@ -40,8 +40,8 @@ export default function LoremIpsumGenerator() {
   return (
     <>
       <SEOHead title="Lorem Ipsum Generator - Placeholder Text Generator" description="Generate lorem ipsum placeholder text. Choose paragraphs, sentences, or words. Free online tool." path="/lorem-ipsum-generator" keywords="lorem ipsum, placeholder text, dummy text generator, lipsum, lorem ipsum generator" />
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-8">
+      <div className="tool-page">
+        <div className="tool-page-header">
           <div className="w-14 h-14 bg-amber-100 rounded-xl flex items-center justify-center mx-auto mb-4"><AlignLeft className="w-7 h-7 text-amber-600" /></div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Lorem Ipsum Generator</h1>
           <p className="text-gray-600">Generate placeholder text for your designs and layouts.</p>

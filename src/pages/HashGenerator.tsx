@@ -34,8 +34,8 @@ export default function HashGenerator() {
   return (
     <>
       <SEOHead title="Hash Generator - SHA-1, SHA-256, SHA-512 Online" description="Generate hash values for text using SHA-1, SHA-256, SHA-384, SHA-512 algorithms. Free online hash generator." path="/hash-generator" keywords="hash generator, sha256, sha1, sha512, hash calculator, text hash, checksum generator" />
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-8">
+      <div className="tool-page">
+        <div className="tool-page-header">
           <div className="w-14 h-14 bg-violet-100 rounded-xl flex items-center justify-center mx-auto mb-4"><Hash className="w-7 h-7 text-violet-600" /></div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Hash Generator</h1>
           <p className="text-gray-600">Generate cryptographic hashes for any text input.</p>
